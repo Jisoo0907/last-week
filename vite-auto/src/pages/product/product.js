@@ -1,7 +1,7 @@
 import getPbImageURL from '@/api/getPbImageURL';
 import '@/pages/product/product.css';
 import gsap from 'gsap';
-import { comma, insertLast, setDocumentTitle } from 'kind-tiger';
+import { comma, insertLast, setDocumentTitle, getStorage } from 'kind-tiger';
 import pb from '@/api/pocketbase';
 
 // console.log(await pb.collection('products').getFullList());
@@ -19,6 +19,8 @@ async function renderProductItem() {
 
   const productsData = response.data.items; */
 
+  const { isAuth } = await getStorage('auth');
+
   productData.forEach((item) => {
     const discount = item.price * (item.ratio * 0.01);
 
@@ -26,6 +28,7 @@ async function renderProductItem() {
       <li class="product-item">
           <div>
             <figure>
+              <a href="/"></a>
               <img src="${getPbImageURL(item)}" alt="" />
             </figure>
             <span class="brand">${item.brand}</span>
