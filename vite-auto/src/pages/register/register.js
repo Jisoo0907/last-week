@@ -39,7 +39,6 @@ function register() {
       })
       .catch(() => {
         alert('동일한 이메일이 존재합니다.');
-        // location.reload();
         gsap.to('.wrapper', { x: 0 });
         gsap.to('.line > div', { width: '0' });
         idField.value = '';

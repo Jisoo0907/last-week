@@ -1,14 +1,9 @@
+import defaultAuthData from '@/api/defaultAuthData';
 import getPbImageURL from '@/api/getPbImageURL';
-import {
-  getStorage,
-  insertLast,
-  getNode,
-  deleteStorage,
-  setStorage,
-} from 'kind-tiger';
-import '/src/styles/global.css';
 import pb from '@/api/pocketbase';
 import gsap from 'gsap';
+import { getNode, getStorage, insertLast, setStorage } from 'kind-tiger';
+import '/src/styles/global.css';
 
 const tl = gsap.timeline({
   defaults: {
@@ -17,7 +12,7 @@ const tl = gsap.timeline({
 });
 
 tl.from('.visual', { delay: 0.3, y: 30 });
-tl.from('h2 > span', { x: -30 }, '-=0.2'); // delay로 더 늦게 나오게 하는 건 setTimeout같이 시간에 의존.
+tl.from('h2 > span', { x: -30 }, '-=0.2');
 
 async function logout() {
   if (localStorage.getItem('auth')) {
@@ -37,10 +32,11 @@ async function logout() {
       const logout = getNode('.logout');
 
       function handleLogout() {
-        if (confirm('정말 로그아웃 하실 겁니까?')) {
+        if (confirm('정말 로그아웃 하실겁니까?')) {
           pb.authStore.clear();
           // deleteStorage('auth');
-          setStorage('auth');
+          setStorage('auth', defaultAuthData);
+
           location.reload();
         }
       }
