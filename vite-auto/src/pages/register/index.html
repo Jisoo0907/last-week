@@ -7,7 +7,7 @@
 
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="/src/styles/tailwind.css" />
-    <script type="module" src="/src/pages/register/register.css"></script>
+    <script type="module" src="/src/pages/register/register.js"></script>
   </head>
   <body>
     <header class="flex justify-between p-6 bg-slate-200">
@@ -27,7 +27,6 @@
     <div class="container">
       <h2>회원가입</h2>
       <div class="line">
-        <!-- 바깥 쪽 라인이 있고 안쪽에 채워지는 라인이 있어서 div 속의 div -->
         <div></div>
       </div>
 
@@ -37,9 +36,8 @@
             로그인에 사용할 <br />
             아이디를 입력해주세요.
           </h3>
-
           <label for="idField"></label>
-          <input type="text" id="idField" placeholder="아이디 (이메일) 입력" />
+          <input type="email" id="idField" placeholder="아이디 (이메일) 입력" />
 
           <button type="button" class="next-1" disabled>다음</button>
         </div>
@@ -47,11 +45,14 @@
         <div class="step-2">
           <h3>
             로그인에 사용할 <br />
-            아이디를 입력해주세요.
+            비밀번호를 입력해주세요.
           </h3>
-
           <label for="pwField"></label>
-          <input type="password" id="pwField" placeholder="비밀번호 입력" />
+          <input
+            type="password"
+            id="pwField"
+            placeholder="비밀번호 (이메일) 입력"
+          />
 
           <button type="button" class="next-2" disabled>완료</button>
         </div>
