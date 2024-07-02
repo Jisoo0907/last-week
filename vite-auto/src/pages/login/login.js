@@ -21,8 +21,11 @@ const loginButton = getNode('.login');
 function handleLogin(e) {
   e.preventDefault();
 
-  const id = 'jisoo@naver.com';
-  const pw = 'kelly123';
+  /*  const id = 'jisoo@naver.com';
+  const pw = 'kelly123'; */
+
+  const id = getNode('#idField').value;
+  const pw = getNode('#pwField').value;
 
   pb.collection('users')
     .authWithPassword(id, pw)
